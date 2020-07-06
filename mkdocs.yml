@@ -1,0 +1,17 @@
+site_name: PrototypeML
+site_url: http://www.prototypeml.com
+dev_addr: '192.168.0.2:9000'
+site_description: "PrototypeML is a neural-network integrated design and development environment available at www.PrototypeML.com"
+site_author: "Daniel Harris"
+copyright: "Copyright 2020 Adventurize LLC.  All rights reserved."
+theme:
+    name: material
+    navigation_depth: 5
+    collapse_navigation: True
+
+nav:
+    - 'index.md'
+    - 'concepts.md'
+    - 'projects.md'
+    - 'models.md'
+    - 'codegen.md'
