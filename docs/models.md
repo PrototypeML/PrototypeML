@@ -373,10 +373,9 @@ definition box.
 
 Each component instance in the code-graph has a set of properties, some required, some optional. Component
 instance properties are different from the component properties; they refer to the particular instance of the
-component in the code-graph. To edit the properties of a block or mutator instance in the code-graph, window,
-click of the component instance in the code-graph, and the properties bar will display the block's properties
-for you to edit.  To edit the properties of a component within the block, click on the component in the graph;
-this will cause the properties bar to display the properties for that component.
+component in the code-graph. To edit the properties of a block or mutator instance visible in the code-graph
+window, click on the component instance in the code-graph (not in the library bar), and the properties bar
+will display the components's properties for you to edit.
 
 #### Instance name
 
