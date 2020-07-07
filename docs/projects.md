@@ -35,8 +35,8 @@ select "All Projects" from the "Show" menu.
 ## Project creation
 
 To create a new project, click the "New Project" button on the [projects repository
-page](#projects-repository-page). You need to specify a name for the project, a description, and a tag
-(category). These will help other people find your work. Click "Submit" to finish creating the project.
+page](#projects-repository-page). You need to specify a name for the project, a description, and one or more tags
+(categories). These will help other people find your work. Click "Submit" to finish creating the project.
 
 After the project has been created, PrototypeML displays the project page for your new project.  Running
 across the top are the name of your project; the version number (set to "Dev" initially, but you can [create a

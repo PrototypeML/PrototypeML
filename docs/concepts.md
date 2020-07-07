@@ -81,8 +81,7 @@ PrototypeML supports creating and editing mutators written in Python, following 
 use with Pytorch, for example, that every mutator contains an `init` routine and a `forward` routine.  The
 specifics of how to use PyTorch are beyond the scope of this manual; they can be found in the [PyTorch
 Documentation](https://pytorch.org/docs/stable/index.html).  You can also write mutators in other programming
-languages, but PrototypeML does not provide editor support for them other than as text files <span
-style="color:red">*** whose functions can be `imported` into other mutators?? ***</span>.
+languages, but PrototypeML does not provide editor support for them other than as text files.
 
 Any instance of a mutator can be executed repeatedly just by specifying a repeat count for the mutator
 instance.  The outputs of the mutator instance are fed back in to the inputs, and execution is repeated the
@@ -100,6 +99,9 @@ The [mutator editor](models.md#mutator-editor) is used to create and/or edit a P
 allows you to specify the imports, init code, forward code, and any additional code you need, as required for
 using the PyTorch library.  Mutators can be written in other languages, but PrototypeML does not provide
 editor support for them other than as text files.
+
+Note that mutators have properties, and mutator *instances* have a different (in some cases, overriding) set
+of properties.  The mutator is the *definition*, the mutator instance is the *use*.
 
 ## Blocks
 
@@ -126,8 +128,8 @@ interface, it allows you to you drag mutators or other blocks into the editor, t
 point-and-click to connect the outputs of one component to the inputs of another, thus showing your desired
 data flow.
 
-Every project has an <span style="color:red">*** implicit?? ***</span> outermost block that contains all other
-blocks and mutators in the project.
+Note that blocks have properties, and block *instances* have a different (in some cases, overriding) set
+of properties.  The block is the *definition*, the block instance is the *use*.
 
 ## Files
 
@@ -155,9 +157,9 @@ Code generation proceeds as follows:
 
 * A Python class is created for each block
 
-* PrototypeML concatenates all of the mutator sections (import, init, forward, additional functions) from each
+* PrototypeML concatenates all of the mutator sections (import, init, forward, additional code) from each
   mutator in each block into a single set of `import` statements in the class, a single `__init__` routine,
-  and a single `forward` routine. Additional functions are added to the class after the `__init__` and
+  and a single `forward` routine. The additional code section is added to the class after the `__init__` and
   `forward` routines.
 
 * Code is generated to implement repeat counts and activations

@@ -27,7 +27,8 @@ and other files; and the properties bar, where you can specify various propertie
 
 On the left-hand side of the model editor is the Library Bar, listing the components (blocks, mutators, files,
 and package dependencies) currently in your project.  You can locate files in your project using the search
-box, or by navigating the folder structure.
+box, or by navigating the folder structure.  From the library bar, you can also download all of the code for
+the current project.
 
 ### Editor Window
 
@@ -51,7 +52,8 @@ libraries or components from the PrototypeML project repository.  It is also the
 editing any of those components. At the top of the library bar is a search box, where you can search through
 your components located anywhere in your PrototypeML directory structure.  Below the search box is a blue
 "Add" button, which when clicked, brings up a drop-down menu of items you can create or add to your project:
-block, mutator, folder, file, or package dependency.
+block, mutator, folder, file, or package dependency.  Next to the "Add" button is a black download icon: Click
+on the icon to download a zip file containing all of the code for your project.
 
 ### Creating components
 
@@ -85,7 +87,7 @@ the project.  When you click "Use", the project is added into the "Packages" fol
 
 To insert a component from your package dependencies into a block, first click on the block in the library bar
 to open up the block editor.  Then from the library bar, navigate to the package and then component you'd like
-to add, and drag it into the code graph.  Connect the input and output ports, specify the properties, and
+to add, and drag it into the code-graph.  Connect the input and output ports, specify the properties, and
 you're done.
 
 ### Organizing your project
@@ -105,7 +107,7 @@ The mutator editor window is divided into several sections.  The [imports](#impo
 write Python import statements for libraries and files (modules) needed by your mutator.  The [init](#init)
 section is where you write Python code for the `init` routine of your mutator.  The [forward](#forward)
 section is whee you write Python code for the `forward` routine of your mutator.  Finally, the [additional
-functions](#additional-functions) section is where you write other Python code that your mutator will need, if
+code](#additional-code) section is where you write other Python code that your mutator will need, if
 any.
 
 ### Properties of a mutator
@@ -126,7 +128,7 @@ repeated, by default.  This default can be overridden when the mutator is used b
 
 #### Ports
 
-The input and output ports of a mutator are the connection between the data flow shown in the code graph and
+The input and output ports of a mutator are the connection between the data flow shown in the code-graph and
 the actual code. Every mutator has at least one input port and at least one output port.  You can define more
 than one input or output port.  The ports are displayed as large dots on the mutator icon shown in the code
 graph. By default, the input port is named "input" and the output port is named "output", but these can be
@@ -144,11 +146,14 @@ To make reuse of mutators easier, input parameters can be defined, which can be 
 instance (use) of the mutator.  Code within a mutator accesses parameter values using [magic
 variables](#magic-variables].
 
-Parameters can be added by clicking the "plus" icon next to "Parameters", which will display
-a pop-up form.  Enter the desired name for the new port, which will help form the identifier used within the
-code to access the parameter value; the prompt is the string displayed in the properties of any instances of
-the mutator requesting a value for the parameter; indicate whether the parameter is required or optional, and
-specify a default value for the parameter, if one. Click the "Add Parameter" button to create the parameter.
+Parameters can be added by clicking the "plus" icon next to "Parameters", which will display a pop-up form.
+Enter the desired name for the new parameter, which will help form the identifier used within the code to
+access the parameter value; the prompt is the string displayed in the properties of any instances of the
+mutator requesting a value for the parameter; indicate whether the parameter is required or optional, and
+specify a default value for the parameter, if one. Click the "Add Parameter" button to create the
+parameter. Parameters can be edited by clicking the "pencil" icon next to the parameter, which will display a
+pop-up form allowing you to change its attributes.  Click "Update Parameter" to save the changes.  Parameters
+can be deleted by clicking the "trash can" icon next to the parameter name.
 
 #### Python packages
 
@@ -196,10 +201,13 @@ routine will need to save them to class variables.
 Magic variables provide programmatic access to the inputs, outputs, and parameters of a mutator.  The actual
 values for these magic names are substituted during code-generation. Here are the available magic variables:
 
-* `${params}` - This is a list of all parameters to a given mutator or block.<br>
+* `${params}` - This is substituted with a comma-separated list of all parameters to a given mutator or block.<br>
    Usage example:
 ~~~
-    ** Fill this in **
+    subcall(${params})
+
+    # If there are 3 parameters, `param1`, `param2`, `param3`, this will generate:
+    subcall(param1, param2, param3)
 ~~~
 
 * `${params.<name>}` - This has the value of parameter with name `name`.<br>
@@ -211,8 +219,8 @@ values for these magic names are substituted during code-generation. Here are th
     if (2000 > 1000):
 ~~~
 
-* `${instance}` - This is a unique string generated by PrototypeML for each instance of a mutator or block.
-  You can use it to construct unique variable names in a mutator or block.<br>
+* `${instance}` - This is a unique string generated by PrototypeML for each instance of a mutator.
+  You can use it to construct unique variable names in a mutator.<br>
    Usage example:
 ~~~
     dilation_${instance} = ${params.dilation}
@@ -257,15 +265,14 @@ In the `forward` routine, only certain [magic variables](#magic-variables) are a
 current iteration in a repeated mutator).  If the `forward` routine needs access to other magic variables, the
 `init` routine will need to save them to (unique, using `${instance}`) class variables.
 
-### Additional Functions
+### Additional Code
 
-This section holds any additional functions, that you want to add to the class.  It can contain
-any other code that would be valid inside a class, and is inserted after the `__init__` and `forward`
-routines.  To use functions you've written in the additional functions section, you need to
-`import` them in the import section.
+This section holds any additional code that can be used in a Python `class`, for example, functions. The
+additional code section is inserted after the `__init__` and `forward` routines.  To use functions you've
+written in the additional code section, you need to `import` them in the import section.
 
-The `${instance}`, `${repeat}`, and `${repeat_index}` [magic variables]($magic-variables) are accessible
-within the additional functions section.
+The `${instance}` [leaving soon, but required for now], `${repeat}`, and `${repeat_index}` [magic
+variables]($magic-variables) are accessible within the additional code section.
 
 ## Block editor
 
@@ -273,22 +280,24 @@ To edit a block, click on the block in the library bar.  The code-graph for the 
 [editor window](#editor-window), and its properties will appear in the [properties bar](#properties-bar).
 
 From here, you can drag in new components from the library bar and add arcs to connect them to existing
-components in the code graph; edit any of the block properties in the properties bar, or by clicking on a
-component in the code graph, you can change the properties of that instance of the component in the properties
-bar.  Clicking on an empty area of the code graph will change the properties bar to show the block properties
-instead of the component instance properties.
+components in the code-graph; edit any of the block properties in the properties bar, or by clicking on a
+component in the code-graph, you can change the properties of that instance of the component in the properties
+bar.  Clicking on an empty area of the code-graph will change the properties bar back to show the block
+properties instead of the component instance properties.
+
+### Navigating within the graph (minimap, zoom)
 
 Across the top of the editor window are icons that when clicked, let you zoom in or out of the graph; reset
 the graph view (useful if parts of the graph are out of the window); format the graph, which prettifies the
 components and arcs; switch to code view, to see the generated code for that block; and turn on or off the
-"minimap" displayed at the upper-right of the code-graph, which shows you which part of the code graph is
+"minimap" displayed at the upper-right of the code-graph, which shows you which part of the code-graph is
 visible in the editor window.
 
-### Adding components to the code graph
+### Adding components to the code-graph
 
-There are three steps to add a component to the code graph:
+There are three steps to add a component to the code-graph:
 
-1. Drag the component from the library bar onto the code graph
+1. Drag the component from the library bar onto the code-graph
 
 2. Drag arcs from the output(s) of other components to the input of the new component, and likewise, drag arcs
    from the output(s) of the new component to the input(s) of other components.
@@ -298,7 +307,7 @@ There are three steps to add a component to the code graph:
 
 ### Connecting components together (links, input ports, and output ports)
 
-Arcs in the code graph show the data flow between components.  To draw an arc connecting a new component, click
+Arcs in the code-graph show the data flow between components.  To draw an arc connecting a new component, click
 on the output port of an existing component and hold the mouse down, then drag it to the input port on the
 new component, and release the mouse.  Do the same from the output port of the new component to the input port
 of an existing component.
@@ -307,18 +316,94 @@ You are allowed to draw two (or more) arcs to the same input port of some compon
 to define how the two data streams should be combined.  If you click directly on the dot representing the
 input port, the properties tab of the editor will change to show the properties of that component instance. 
 
-### Setting component instance properties
-#### Instance name
-#### Instance repeat
-#### Instance comment
-#### Instance parameters
-#### Looping via Repeats
-### Sorting graph
-### Navigating within the graph (minimap, zoom)
-### Attributes of a block
+### Properties of a block
+
+To set the properties of a block, click on the block in the library bar, then click on an open area of the
+code-graph.  The properties bar will display the block properties.
+
+#### Block name
+
+The name of this block.
+
+#### Default repeat
+
+Unless overriden in a block instance, this is the count of the number of times this block will be executed.
+Not all blocks can be repeated: They have to have the same number of inputs as outputs, and the
+corresponding inputs and outputs have to be compatible.
+
+#### Block comment
+
+This is a place to enter information about what this block does and how to use it.
+
 #### Ports
-#### Parameters
-#### Variables
+
+This section displays the input and output ports for the block.  By default, every block has one input port
+named `input` and one output port named `output`.  You can add ports by clicking the "plus" icon, which will
+display a pop-up form requesting the name of the port, and whether it is an input or output port. Click "Add
+Port" to finish adding the port.  Ports can be renamed (including `input` and `output`), by clicking the
+"pencil" icon next to the port name, and editing the name and/or port type (input vs. output) in the pop-up
+window. Click "Update Port" to save the change.  Ports can also be deleted by clicking the "trash can" icon
+next to the port name.
+
+#### Parameters and variables
+
+To make reuse of blocks easier, input parameters and variables can be defined, which can be specified
+differently for each instance (use) of the block.  Code within a block accesses parameter and variables values
+using [magic variables](#magic-variables].  Parameters and variables must have compile-time constant values.
+
+Parameters and variables are similar, except that parameter values can only contain constants or constant
+expressions, whereas variables can contain (constant) expressions that can include parameter values.
+
+Parameters can be added by clicking the "plus" icon next to "Parameters", which will display
+a pop-up form.  Enter the desired name for the new parameter, which will help form the identifier used within the
+code to access the parameter value; the prompt is the string displayed in the properties of any instances of
+the mutator requesting a value for the parameter; indicate whether the parameter is required or optional, and
+specify a default value for the parameter, if one. Click the "Add Parameter" button to create the parameter.
+Parameters can be edited by clicking the "pencil" icon next to the parameter, which will display a pop-up form
+allowing you to change its attributes.  Click "Update Parameter" to save the changes.  Parameters can be
+deleted by clicking the "trash can" icon next to the parameter name.
+
+Variables are added, edited, and removed in exactly the same way as parameters, except that the definition of
+a variable can include parameter values.  When you are adding a variable, and you click in the definition box,
+if there are any parameters defined, they will be displayed below the definition box. To insert a parameter
+value into the expression you are writing in the definition box, just click on the parameter name below the
+definition box.
+
+### Setting component instance properties
+
+Each component instance in the code-graph has a set of properties, some required, some optional. Component
+instance properties are different from the component properties; they refer to the particular instance of the
+component in the code-graph. To edit the properties of a block or mutator instance in the code-graph, window,
+click of the component instance in the code-graph, and the properties bar will display the block's properties
+for you to edit.  To edit the properties of a component within the block, click on the component in the graph;
+this will cause the properties bar to display the properties for that component.
+
+#### Instance name
+
+The instance name is the name of this particular instance of the block or mutator.  Instance names within a
+block must be unique for that type of block or mutator.  For example, if a block contains two copies of a
+block or mutator named "Conv", then by default, both instances in the graph will have the name "Conv"; at
+least one of them should be renamed, e.g. "Conv1".
+
+#### Instance repeats
+
+This is the count of the number of times this block or mutator will be executed.  Not all blocks and mutators
+can be repeated: They have to have the same number of inputs as outputs, and the corresponding inputs and
+outputs have to be compatible.  This instance repeat count overrides the default repeat count in the
+properties of the block or mutator definition.
+
+#### Instance comment
+
+This is a place to enter information about what this block or mutator does.
+
+#### Instance activation
+
+You can easily apply any commonly-used activation to the output of a block or mutator instance. Currently
+supported activations include: ReLU, Sigmoid, Tanh, Softmax, and Softmax2d.
 
 ## File editor
-### Types of files
+
+The file editor is used to edit text files (ie. components that are not blocks or mutators), for example, the
+[Readme file](projects.md#the-readme-file).  It is a basic editor showing the lines in the file with line
+numbers.  Move your mouse within the file editor window and click to position the cursor, and use the standard
+delete and backspace keys for your operating system and device.
