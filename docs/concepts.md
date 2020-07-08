@@ -93,7 +93,7 @@ either by concatenating them, or adding them.  If they are to be concatenated, t
 must be specfied.
 
 You can easily apply any commonly-used activation to the output of a mutator instance, as well. Currently
-supported activations include: ReLU, Sigmoid, Tanh, Softmax, and Softmax2d.
+supported activations include: ReLU, Sigmoid, Tanh, Softmax, and Leaky_ReLU.
 
 The [mutator editor](models.md#mutator-editor) is used to create and/or edit a Python/PyTorch mutator.  It
 allows you to specify the imports, init code, forward code, and any additional code you need, as required for
@@ -121,7 +121,7 @@ instance, either by concatenating them, or adding them.  If they are to be conca
 dimension must be specfied.
 
 Also like mutators, you can easily apply any commonly-used activation to the output of a block instance, as
-well. Currently supported activations include: ReLU, Sigmoid, Tanh, Softmax, and Softmax2d.
+well. Currently supported activations include: ReLU, Sigmoid, Tanh, Softmax, and Leaky_ReLU.
 
 The [block editor](models.md#block-editor) is used to create and/or edit a block.  Using a drag-and-drop
 interface, it allows you to you drag mutators or other blocks into the editor, then draw arcs using
