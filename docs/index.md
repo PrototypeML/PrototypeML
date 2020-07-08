@@ -1,7 +1,5 @@
 # Welcome to PrototypeML
 
-The easier way to design and develop neural networks!
-
 ## Overview
 
 Neural network architectures are most often conceptually designed and described
