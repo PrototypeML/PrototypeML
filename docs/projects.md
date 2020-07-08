@@ -108,3 +108,22 @@ confirmation box will appear requiring you to verify that you do indeed want to 
 to delete the project.  Project deletion is irreversible, that is, projects cannot be "undeleted", so be sure
 you really want to delete the project first.  Note that deleting a project will **not** remove it from other
 projects that have already used it.
+
+## PrototypeML Accounts
+
+You will need to be logged in to your own account on PrototypeML in order to create and manage projects.  It
+is free to create a PrototypeML account.  
+
+If you do not already have an account on PrototypeML, click on "Login/Register" in the main menu on any page,
+which will display a login form.  Click the "Create a new account" link below the login form. This will
+display a registration form, allowing you to register using either your Github login (if you have one), or by
+specifying new account credentials (username, login email address, and password) directly to PrototypeML. The
+username is the name that will appear publicly on all of your projects.
+
+If you register using Github, your PrototypeML username will be the same as your Github username, and you need
+to login to PrototypeML using your Github credentials every time you wish to log in.
+
+To login to an existing account, click on the "Login/Register" button in the main menu on any page, which will
+display a login form. You may log in using either your Github login (if you used it when you registered), or
+using your PrototypeML account login email address and password that you specified when you created your
+PrototypeML account.  Fill out the form and click the "Sign In" button.
