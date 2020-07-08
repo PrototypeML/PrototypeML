@@ -8,6 +8,7 @@ theme:
     name: material
     navigation_depth: 5
     collapse_navigation: True
+    custom_dir: overrides
 
 nav:
     - 'index.md'
@@ -15,3 +16,7 @@ nav:
     - 'projects.md'
     - 'models.md'
     - 'codegen.md'
+    - '_________': '#'
+    - 'PrototypeML Home': 'http://www.prototypeml.com'
+    - 'Issues': 'https://github.com/PrototypeML/PrototypeML/issues'
+    - 'Community (Discord)': 'https://discord.gg/zq8uqSf'

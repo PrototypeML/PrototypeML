@@ -1,7 +1,10 @@
 # Code generation
 
 After you have edited all of the pieces of your project to your satisfaction, you can generate compilable code
-for the project.  Code generation proceeds as follows:
+for the project in one click of your computer mouse.  You can then build and run this code on your preferred
+development machine.
+
+Code generation proceeds as follows:
 
 * A Python class is created for each block
 
@@ -12,9 +15,10 @@ for the project.  Code generation proceeds as follows:
 
 * Code is generated to implement repeat counts and activations
 
-* All of the references to [magic variables](models.md#magic-variables) are substituted with the actual
-  variables that will contain their values at runtime, including parameters, variables, inputs, and outputs,
-  repeat counts, repeat indices, etc.
+* All of the references to [magic variables](models.md#magic-variables) are textually substituted with the
+  actual variables that will contain their values, including parameters, variables, inputs, and outputs,
+  repeat counts, repeat indices, etc. and all references to input and output port values within each block are
+  resolved.
 
 This process is analagous to a linker concatenating different modules into program sections and resolving
 references.
