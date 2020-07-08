@@ -314,7 +314,15 @@ of an existing component.
 
 You are allowed to draw two (or more) arcs to the same input port of some component.  In this case, you need
 to define how the two data streams should be combined.  If you click directly on the dot representing the
-input port, the properties tab of the editor will change to show the properties of that component instance. 
+input port, the properties tab of the editor will change to show the properties of that component instance.
+
+Arcs have properties, specifically, the weight of the arc. When you click on an arc, the properties bar
+displays the arc properties.  When two or more arcs are connected to the same input port, the data on those
+arcs is combined, either concatenated or added; if concatenated, arc data is concatenated in order of the
+weights of the arcs, the largest weight is first, the smallest is last.
+
+To delete an arc, select the arc by clicking on it, then either press the Delete key, or, in the properties
+bar, displayed when you select an arc, click the "Delete Link" button.
 
 ### Properties of a block
 
