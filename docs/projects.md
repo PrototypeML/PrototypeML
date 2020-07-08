@@ -5,11 +5,11 @@ the neural network model, including any external libraries used, along with what
 weights, and documentation you provide.  From the [projects repository page](#projects-repository-page), you
 can search for projects that interest you, and examine the contents of the project.
 
-If you are logged in to your [PrototypeML account](concepts.md#prototypeml-accounts), you can also [create
+If you are logged in to your [PrototypeML account](#prototypeml-accounts), you can also [create
 projects](#project-creation), [edit project settings](#editing-project-settings), [fork a
 project](#forking-a-project) (make a copy of a project that you can edit), [star a
 project](#starring-a-project) (rate the project), build a project [Readme file](#the-readme-file), [tag the
-project](#project-tags) with appropriate categories to make it easier for others to find your work, and
+project](#editing-project-settings) with appropriate categories to make it easier for others to find your work, and
 finally, you can [delete a project](#deleting-a-project) you no longer want.
 
 ## Projects Repository Page
@@ -42,8 +42,8 @@ After the project has been created, PrototypeML displays the project page for yo
 across the top are the name of your project; the version number (set to "Dev" initially, but you can [create a
 numbered version release](#creating-a-release) later; the number of [stars](#starring-a-project) your project
 has been given by the PrototypeML community (yes, you can star your own project!); the number of times your
-project has been [forked](#forking-a-project), an ["Edit Model"](models.md) button, and drop-down menu of
-additional operations (marked with a "gear" icon) from where you can [create a new
+project has been [forked](#forking-a-project), an "[Edit Model](models.md#editing-models)" button, and
+drop-down menu of additional operations (marked with a "gear" icon) from where you can [create a new
 release](#creating-a-release), [edit your project settings](#editing-project-settings), or [delete the
 project](deleting-a-project).
 
@@ -80,7 +80,7 @@ the author.  Yes, you can "star" your own project!
 
 ## The Readme file
 
-The [Readme file](concepts.md#the-readme-file) is a [Markdown](https://daringfireball.net/projects/markdown/) file in
+The Readme.md file is a [Markdown](https://daringfireball.net/projects/markdown/) file in
 which you should put a description of your project, along with instructions on how to use it, and any other
 information a user of your project would find helpful, including links to relevant material.
 

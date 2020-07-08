@@ -2,7 +2,7 @@
 
 The neural network model editor is the core of PrototypeML.  It allows you to design a neural network model by
 drawing the graph of the network, incorporating already-written components like the PyTorch library and
-community-contributed [blocks](#concepts.md#blocks), [mutators](concepts.md#mutators), or other
+community-contributed [blocks](concepts.md#blocks), [mutators](concepts.md#mutators), or other
 [files](concepts.md#files), with (optionally) components you write. You create blocks using a drag-and-drop
 interface, you drag desired components into the [block editor](#block-editor), then draw arcs using
 point-and-click to connect the outputs of one component to the inputs of another, thus showing your desired
@@ -35,7 +35,7 @@ the current project.
 In the middle of the model editor is the editor window displaying the contents of the current component
 (block, mutator, or file) being edited.  When editing a mutator, the editor window displays
 the [mutator editor](#mutator-editor).  When editing a block, the editor window displays the [block
-editor](#block-editor).  When editing a file, the editor window displays the [file editor](#file editor).
+editor](#block-editor).  When editing a file, the editor window displays the [file editor](#file-editor).
 Across the top of the editor window are tabs showing the names of the components currently being
 edited. Clicking on a tab opens the component in the editor window, and changes the properties bar contents to
 display the properties of that component.
@@ -60,8 +60,9 @@ on the icon to download a zip file containing all of the code for your project.
 Selecting block, mutator, folder, or file from the "Add" menu in the library bar creates that new component in
 the current directory of your project.  A pop-up window requests the name of your new component; enter the
 desired name, and click "Ok" to finish creating the new component.  Blocks, mutators, and files can then be
-edited by clicking on the component in the library bar.  When creating a file, you are asked to select a file
-type, one of (.py, .txt, or .md).
+edited by clicking on the component in the library bar, which displays the editor for that component.  By
+default, files are created as Python (.py) files. You can change the file type from the properties bar of the
+file editor.  ProtoypeML currently allows file types to be one of (.py, .txt, or .md).
 
 Folders can be renamed or removed, as desired, by clicking the 3-dot icon in the folder, which displays a
 pop-up menu of those choices.  Select rename or remove, as desired. Rename displays a pop-up window allowing
@@ -116,7 +117,8 @@ Mutators have several properties (attributes): name, default repeat count, input
 parameters, and Python package dependencies.  The default repeat count specifies the number of times this
 mutator will be repeated at execution time. The input ports are the input arguments to the mutator.  The
 output ports are the output arguments from the mutator.  Parameters are constants that can be defined
-differently for each use (instance) of the mutator, for example, `kernel_size`, `stride` or `dilation`.
+differently for each use (instance) of the mutator, for example, `kernel_size`, `stride` or `dilation`.  You
+can also define "select" parameters (strings) that a user can choose from, e.g. "left", "right", "middle".
 
 #### Default Repeats
 
@@ -147,18 +149,18 @@ instance (use) of the mutator.  Code within a mutator accesses parameter values 
 variables](#magic-variables].
 
 Parameters can be added by clicking the "plus" icon next to "Parameters", which will display a pop-up form.
-There are two kinds of parameters: input (ie. numeric), and select. Enter the desired name for the new parameter, which
-will help form the identifier used within the code to access the parameter value; the prompt is the string
-displayed in the properties of any instances of the mutator requesting a value for the parameter; and indicate
-whether the parameter is required or optional.
+There are two kinds of parameters: input (ie. numeric), and select. Enter the desired name for the new
+parameter, which will help form the identifier used within the code to access the parameter value; the prompt
+is the string displayed in the properties of any instances of the mutator requesting a value for the
+parameter; and indicate whether the parameter is required or optional.
 
 Next, choose a "type" for the parameter.  If you choose "input" (a numeric type), then specify the default
 value as any valid Python constant expression.  If you choose type "select", then the pop-up display changes
-to allow you to specify values for the select.  Click the "plus" icon next to "Allowed Values", and a text box
-will appear allowing you to enter the name of one of the select options, e.g. "left". Click the "plus" sign
-next to "Allowed Values" again, and enter another possible select option, e.g. "right".  Repeat this process
-until you have specified all of your desired values.  To remove a value, click the "minus" icon next to the
-value text box.
+to allow you to specify the allowed string values for the select.  Click the "plus" icon next to "Allowed
+Values", and a text box will appear allowing you to enter the name of one of the select options,
+e.g. "left". Click the "plus" sign next to "Allowed Values" again, and enter another possible select option,
+e.g. "right".  Repeat this process until you have specified all of your desired values.  To remove a value,
+click the "minus" icon next to the value text box.
 
 Regardless of whether you choose a numeric or select parameter type, specify a default value for the
 parameter, if one. For select parameter types, the default value must be one of the specified select options.
@@ -335,8 +337,8 @@ bar, displayed when you select an arc, click the "Delete Link" button.
 
 ### Properties of a block
 
-To set the properties of a block, click on the block in the library bar, then click on an open area of the
-code-graph.  The properties bar will display the block properties.
+To set the properties of a block, click on the block in the library bar. The properties bar will display the
+block properties.
 
 #### Block name
 
@@ -347,10 +349,6 @@ The name of this block.
 Unless overriden in a block instance, this is the count of the number of times this block will be executed.
 Not all blocks can be repeated: They have to have the same number of inputs as outputs, and the
 corresponding inputs and outputs have to be compatible.
-
-#### Block comment
-
-This is a place to enter information about what this block does and how to use it.
 
 #### Ports
 
@@ -371,20 +369,33 @@ using [magic variables](#magic-variables].  Parameters and variables must have c
 Parameters and variables are similar, except that parameter values can only contain constants or constant
 expressions, whereas variables can contain (constant) expressions that can include parameter values.
 
-Parameters can be added by clicking the "plus" icon next to "Parameters", which will display
-a pop-up form.  Enter the desired name for the new parameter, which will help form the identifier used within the
-code to access the parameter value; the prompt is the string displayed in the properties of any instances of
-the mutator requesting a value for the parameter; indicate whether the parameter is required or optional, and
-specify a default value for the parameter, if one. Click the "Add Parameter" button to create the parameter.
-Parameters can be edited by clicking the "pencil" icon next to the parameter, which will display a pop-up form
-allowing you to change its attributes.  Click "Update Parameter" to save the changes.  Parameters can be
-deleted by clicking the "trash can" icon next to the parameter name.
+Parameters can be added by clicking the "plus" icon next to "Parameters", which will display a pop-up form.
+There are two kinds of parameters: input (ie. numeric), and select. Enter the desired name for the new
+parameter, which will help form the identifier used within the code to access the parameter value; the prompt
+is the string displayed in the properties of any instances of the block requesting a value for the
+parameter; and indicate whether the parameter is required or optional.
 
-Variables are added, edited, and removed in exactly the same way as parameters, except that the definition of
-a variable can include parameter values.  When you are adding a variable, and you click in the definition box,
-if there are any parameters defined, they will be displayed below the definition box. To insert a parameter
-value into the expression you are writing in the definition box, just click on the parameter name below the
-definition box.
+Next, choose a "type" for the parameter.  If you choose "input" (a numeric type), then specify the default
+value as any valid Python constant expression.  If you choose type "select", then the pop-up display changes
+to allow you to specify the allowed string values for the select.  Click the "plus" icon next to "Allowed
+Values", and a text box will appear allowing you to enter the name of one of the select options,
+e.g. "left". Click the "plus" sign next to "Allowed Values" again, and enter another possible select option,
+e.g. "right".  Repeat this process until you have specified all of your desired values.  To remove a value,
+click the "minus" icon next to the value text box.
+
+Regardless of whether you choose a numeric or select parameter type, specify a default value for the
+parameter, if one. For select parameter types, the default value must be one of the specified select options.
+
+Click the "Add Parameter" button to create the parameter. Parameters can be edited by clicking the "pencil"
+icon next to the parameter, which will display a pop-up form allowing you to change its attributes.  Click
+"Update Parameter" to save the changes.  Parameters can be deleted by clicking the "trash can" icon next to
+the parameter name.
+
+Variables are added, edited, and removed in exactly the same way as numeric parameters, except that the
+definition of a variable can include parameter values.  When you are adding a variable, and you click in the
+definition box, if there are any parameters defined, they will be displayed below the definition box. To
+insert a parameter value into the expression you are writing in the definition box, just click on the
+parameter name below the definition box.  The definition box accepts any valid Python constant expression.
 
 ### Setting component instance properties
 
@@ -392,7 +403,7 @@ Each component instance in the code-graph has a set of properties, some required
 instance properties are different from the component properties; they refer to the particular instance of the
 component in the code-graph. To edit the properties of a block or mutator instance visible in the code-graph
 window, click on the component instance in the code-graph (not in the library bar), and the properties bar
-will display the components's properties for you to edit.
+will display the component's properties for you to edit.
 
 #### Instance name
 
@@ -422,4 +433,6 @@ supported activations include: ReLU, Sigmoid, Tanh, Softmax, and Leaky_ReLU.
 The file editor is used to edit text files (ie. components that are not blocks or mutators), for example, the
 [Readme file](projects.md#the-readme-file).  It is a basic editor showing the lines in the file with line
 numbers.  Move your mouse within the file editor window and click to position the cursor, and use the standard
-delete and backspace keys for your operating system and device.
+delete and backspace keys for your operating system and device.  The properties bar displays the properties of
+a file, specifically the name and the file type, which can be one of (.py, .md, or .txt).  You can modify any
+of these properties from the properties bar.

@@ -2,7 +2,7 @@
 
 This section introduces the main concepts in PrototypeML: [Neural networks as code
 graphs](#representing-neural-network-models-as-code-graphs); [Projects](#projects); [Mutators](#mutators);
-[Blocks](#blocks); [Files](#files); and [Code Generation](#code-generation).
+[Blocks](#blocks); [Files](#files); [Folders](#folders) and [Code Generation](#code-generation).
 
 ## Representing Neural Network Models as Code Graphs
 
@@ -166,3 +166,6 @@ Code generation proceeds as follows:
 
 * All of the references within the code to properties like parameters, variables, repeat counts, and input
   &amp; output ports are resolved.
+
+This process is analagous to a linker concatenating different modules into program sections and resolving
+references.
