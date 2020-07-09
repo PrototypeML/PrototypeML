@@ -1,0 +1,1401 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="PrototypeML is a neural-network integrated design and development environment available at www.PrototypeML.com">
+      
+      
+        <link rel="canonical" href="http://www.prototypeml.com/models/">
+      
+      
+        <meta name="author" content="Daniel Harris">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.0">
+    
+    
+      
+        <title>Editing Models - PrototypeML</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.89dc9fe3.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#editing-models" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="http://www.prototypeml.com" title="PrototypeML" class="md-header-nav__button md-logo" aria-label="PrototypeML">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,8A3,3 0 0,0 15,5A3,3 0 0,0 12,2A3,3 0 0,0 9,5A3,3 0 0,0 12,8M12,11.54C9.64,9.35 6.5,8 3,8V19C6.5,19 9.64,20.35 12,22.54C14.36,20.35 17.5,19 21,19V8C17.5,8 14.36,9.35 12,11.54Z" /></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            PrototypeML
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Editing Models
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="http://www.prototypeml.com" title="PrototypeML" class="md-nav__button md-logo" aria-label="PrototypeML">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,8A3,3 0 0,0 15,5A3,3 0 0,0 12,2A3,3 0 0,0 9,5A3,3 0 0,0 12,8M12,11.54C9.64,9.35 6.5,8 3,8V19C6.5,19 9.64,20.35 12,22.54C14.36,20.35 17.5,19 21,19V8C17.5,8 14.36,9.35 12,11.54Z" /></svg>
+
+    </a>
+    PrototypeML
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Welcome to PrototypeML" class="md-nav__link">
+      Welcome to PrototypeML
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../concepts/" title="Concepts" class="md-nav__link">
+      Concepts
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../projects/" title="Project management" class="md-nav__link">
+      Project management
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Editing Models
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Editing Models" class="md-nav__link md-nav__link--active">
+      Editing Models
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview-of-model-editor" class="md-nav__link">
+    Overview of model editor
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview of model editor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#library-bar" class="md-nav__link">
+    Library Bar
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#editor-window" class="md-nav__link">
+    Editor Window
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties-bar" class="md-nav__link">
+    Properties Bar
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-library-bar" class="md-nav__link">
+    Using the Library Bar
+  </a>
+  
+    <nav class="md-nav" aria-label="Using the Library Bar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-components" class="md-nav__link">
+    Creating components
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-a-package-from-the-projects-repository" class="md-nav__link">
+    Adding a package from the projects repository
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-components-from-your-package-dependencies" class="md-nav__link">
+    Adding components from your package dependencies
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organizing-your-project" class="md-nav__link">
+    Organizing your project
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mutator-editor" class="md-nav__link">
+    Mutator editor
+  </a>
+  
+    <nav class="md-nav" aria-label="Mutator editor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#program-sections-of-a-mutator" class="md-nav__link">
+    Program sections of a mutator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties-of-a-mutator" class="md-nav__link">
+    Properties of a mutator
+  </a>
+  
+    <nav class="md-nav" aria-label="Properties of a mutator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#default-repeats" class="md-nav__link">
+    Default Repeats
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ports" class="md-nav__link">
+    Ports
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-packages" class="md-nav__link">
+    Python packages
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imports" class="md-nav__link">
+    Imports
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#init" class="md-nav__link">
+    Init
+  </a>
+  
+    <nav class="md-nav" aria-label="Init">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#magic-variables" class="md-nav__link">
+    Magic variables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#forward" class="md-nav__link">
+    Forward
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-code" class="md-nav__link">
+    Additional Code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#block-editor" class="md-nav__link">
+    Block editor
+  </a>
+  
+    <nav class="md-nav" aria-label="Block editor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#navigating-within-the-graph-minimap-zoom" class="md-nav__link">
+    Navigating within the graph (minimap, zoom)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-components-to-the-code-graph" class="md-nav__link">
+    Adding components to the code-graph
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connecting-components-together-links-input-ports-and-output-ports" class="md-nav__link">
+    Connecting components together (links, input ports, and output ports)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties-of-a-block" class="md-nav__link">
+    Properties of a block
+  </a>
+  
+    <nav class="md-nav" aria-label="Properties of a block">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#block-name" class="md-nav__link">
+    Block name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#default-repeat" class="md-nav__link">
+    Default repeat
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ports_1" class="md-nav__link">
+    Ports
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters-and-variables" class="md-nav__link">
+    Parameters and variables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-component-instance-properties" class="md-nav__link">
+    Setting component instance properties
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting component instance properties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instance-name" class="md-nav__link">
+    Instance name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instance-repeats" class="md-nav__link">
+    Instance repeats
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instance-comment" class="md-nav__link">
+    Instance comment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instance-activation" class="md-nav__link">
+    Instance activation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-editor" class="md-nav__link">
+    File editor
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../codegen/" title="Code generation" class="md-nav__link">
+      Code generation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="#" title="_________" class="md-nav__link">
+      _________
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="http://www.prototypeml.com" title="PrototypeML Home" class="md-nav__link">
+      PrototypeML Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/PrototypeML/PrototypeML/issues" title="Issues" class="md-nav__link">
+      Issues
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="https://discord.gg/zq8uqSf" title="Community (Discord)" class="md-nav__link">
+      Community (Discord)
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview-of-model-editor" class="md-nav__link">
+    Overview of model editor
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview of model editor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#library-bar" class="md-nav__link">
+    Library Bar
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#editor-window" class="md-nav__link">
+    Editor Window
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties-bar" class="md-nav__link">
+    Properties Bar
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-library-bar" class="md-nav__link">
+    Using the Library Bar
+  </a>
+  
+    <nav class="md-nav" aria-label="Using the Library Bar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-components" class="md-nav__link">
+    Creating components
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-a-package-from-the-projects-repository" class="md-nav__link">
+    Adding a package from the projects repository
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-components-from-your-package-dependencies" class="md-nav__link">
+    Adding components from your package dependencies
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organizing-your-project" class="md-nav__link">
+    Organizing your project
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mutator-editor" class="md-nav__link">
+    Mutator editor
+  </a>
+  
+    <nav class="md-nav" aria-label="Mutator editor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#program-sections-of-a-mutator" class="md-nav__link">
+    Program sections of a mutator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties-of-a-mutator" class="md-nav__link">
+    Properties of a mutator
+  </a>
+  
+    <nav class="md-nav" aria-label="Properties of a mutator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#default-repeats" class="md-nav__link">
+    Default Repeats
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ports" class="md-nav__link">
+    Ports
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-packages" class="md-nav__link">
+    Python packages
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imports" class="md-nav__link">
+    Imports
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#init" class="md-nav__link">
+    Init
+  </a>
+  
+    <nav class="md-nav" aria-label="Init">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#magic-variables" class="md-nav__link">
+    Magic variables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#forward" class="md-nav__link">
+    Forward
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-code" class="md-nav__link">
+    Additional Code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#block-editor" class="md-nav__link">
+    Block editor
+  </a>
+  
+    <nav class="md-nav" aria-label="Block editor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#navigating-within-the-graph-minimap-zoom" class="md-nav__link">
+    Navigating within the graph (minimap, zoom)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-components-to-the-code-graph" class="md-nav__link">
+    Adding components to the code-graph
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connecting-components-together-links-input-ports-and-output-ports" class="md-nav__link">
+    Connecting components together (links, input ports, and output ports)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties-of-a-block" class="md-nav__link">
+    Properties of a block
+  </a>
+  
+    <nav class="md-nav" aria-label="Properties of a block">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#block-name" class="md-nav__link">
+    Block name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#default-repeat" class="md-nav__link">
+    Default repeat
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ports_1" class="md-nav__link">
+    Ports
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters-and-variables" class="md-nav__link">
+    Parameters and variables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-component-instance-properties" class="md-nav__link">
+    Setting component instance properties
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting component instance properties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instance-name" class="md-nav__link">
+    Instance name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instance-repeats" class="md-nav__link">
+    Instance repeats
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instance-comment" class="md-nav__link">
+    Instance comment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instance-activation" class="md-nav__link">
+    Instance activation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-editor" class="md-nav__link">
+    File editor
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="editing-models">Editing Models</h1>
+<p>The neural network model editor is the core of PrototypeML.  It allows you to design a neural network model by
+drawing the graph of the network, incorporating already-written components like the PyTorch library and
+community-contributed <a href="../concepts/#blocks">blocks</a>, <a href="../concepts/#mutators">mutators</a>, or other
+<a href="../concepts/#files">files</a>, with (optionally) components you write. You create blocks using a drag-and-drop
+interface, you drag desired components into the <a href="#block-editor">block editor</a>, then draw arcs using
+point-and-click to connect the outputs of one component to the inputs of another, thus showing your desired
+data flow.  You create mutators by writing Python PyTorch code using the <a href="#mutator-editor">mutator
+editor</a>. You can also write code in other languages.</p>
+<p>When you are satisfied with your model design, PrototypeML provides one-click code generation that outputs
+human readable, easily debuggable and maintainable code for your model, on par with neural network libraries,
+although of course the quality of the code exported largely depends upon the quality of the user-implemented
+code.</p>
+<p><strong>Important</strong>: Changes to components are saved automatically as you type or draw; there is no "save" button.</p>
+<h2 id="overview-of-model-editor">Overview of model editor</h2>
+<p>The model editor window has three main sections: the <a href="#library-bar">library bar</a>, which lists the components
+in your model, and allows you to create new components, including adding components from other PrototypeML
+projects and libraries; the <a href="#editor-window">editor window</a>, where you can create and edit blocks, mutators,
+and other files; and the properties bar, where you can specify various properties of blocks and mutators.</p>
+<h3 id="library-bar">Library Bar</h3>
+<p>On the left-hand side of the model editor is the Library Bar, listing the components (blocks, mutators, files,
+and package dependencies) currently in your project.  You can locate files in your project using the search
+box, or by navigating the folder structure.  From the library bar, you can also download all of the code for
+the current project.</p>
+<h3 id="editor-window">Editor Window</h3>
+<p>In the middle of the model editor is the editor window displaying the contents of the current component
+(block, mutator, or file) being edited.  When editing a mutator, the editor window displays
+the <a href="#mutator-editor">mutator editor</a>.  When editing a block, the editor window displays the <a href="#block-editor">block
+editor</a>.  When editing a file, the editor window displays the <a href="#file-editor">file editor</a>.
+Across the top of the editor window are tabs showing the names of the components currently being
+edited. Clicking on a tab opens the component in the editor window, and changes the properties bar contents to
+display the properties of that component.</p>
+<h3 id="properties-bar">Properties Bar</h3>
+<p>The properties bar displays various properties of the current block or mutator being edited, and allows you to
+set or change those properties.</p>
+<h2 id="using-the-library-bar">Using the Library Bar</h2>
+<p>The library bar is where you can create new mutators, blocks, or files for your project, or incorporate
+libraries or components from the PrototypeML project repository.  It is also the place where you initiate
+editing any of those components. At the top of the library bar is a search box, where you can search through
+your components located anywhere in your PrototypeML directory structure.  Below the search box is a blue
+"Add" button, which when clicked, brings up a drop-down menu of items you can create or add to your project:
+block, mutator, folder, file, or package dependency.  Next to the "Add" button is a black download icon: Click
+on the icon to download a zip file containing all of the code for your project.</p>
+<h3 id="creating-components">Creating components</h3>
+<p>Selecting block, mutator, folder, or file from the "Add" menu in the library bar creates that new component in
+the current directory of your project.  A pop-up window requests the name of your new component; enter the
+desired name, and click "Ok" to finish creating the new component.  Blocks, mutators, and files can then be
+edited by clicking on the component in the library bar, which displays the editor for that component.  By
+default, files are created as Python (.py) files. After creating a file, you can change the file type from the
+properties bar of the file editor.  ProtoypeML currently allows file types to be one of (.py, .txt, or .md).</p>
+<p>Folders can be renamed or removed, as desired, by clicking the 3-dot icon in the folder, which displays a
+pop-up menu of those choices.  Select rename or remove, as desired. Rename displays a pop-up window allowing
+you to edit the name; click "Ok" when done.  Remove displays a pop-up window confirming that you really want
+to remove the folder; click "Ok" if you want to remove the folder.  Folder removal is irreversible.</p>
+<h3 id="adding-a-package-from-the-projects-repository">Adding a package from the projects repository</h3>
+<p>Selecting "Package Dependency" from the "Add" menu in the library bar allows you to add any project from the
+projects repository to your project.  Unlike when you add a block, mutator, file, or folder, package
+dependencies are added to a special folder at the root (<code>/</code>) of your directory structure, the Packages folder.
+When you choose to add a package dependency, a pop-up search window appears, allowing you to search the
+repository using free-text, or by tag, or by choosing a project from the complete list, which is displayed
+sorted either by most-liked, or by date (newest first). Selecting a package from the list opens a project page
+for that project, showing the complete list of components, including <a href="../concepts/#blocks">blocks</a>,
+<a href="../concepts/#mutators">mutators</a>, <a href="../concepts/#files] (including the [Readme
+file](projects.md#the-readme-file)), and [folders](concepts.md#folders); a bar across the top allows you to
+select a version (set to &quot;Dev&quot; by default), to [star](projects.md#starring-a-project) the project, or to &quot;Use&quot;
+the project.  When you click &quot;Use&quot;, the project is added into the &quot;Packages&quot; folder in your project's root
+(/) director">files</a>.</p>
+<h3 id="adding-components-from-your-package-dependencies">Adding components from your package dependencies</h3>
+<p>To insert a component from your package dependencies into a block, first click on the block in the library bar
+to open up the block editor.  Then from the library bar, navigate to the package and then component you'd like
+to add, and drag it into the code-graph.  Connect the input and output ports, specify the properties, and
+you're done.</p>
+<h3 id="organizing-your-project">Organizing your project</h3>
+<p>You can use <a href="../concepts/#folders">folders</a> to organize your project.  Just as you would for any project, you
+can keep related files including mutators, blocks, and other files together in a single folder.  You can nest
+folders, as well.</p>
+<h2 id="mutator-editor">Mutator editor</h2>
+<p>To edit a mutator, click on the mutator in the library bar.  The code for the mutator will appear in the
+<a href="#editor-window">editor window</a>, and its properties will appear in the <a href="#properties-bar">properties bar</a>.</p>
+<h3 id="program-sections-of-a-mutator">Program sections of a mutator</h3>
+<p>The mutator editor window is divided into several sections.  The <a href="#imports">imports</a> section is where you
+write Python import statements for libraries and files (modules) needed by your mutator.  The <a href="#init">init</a>
+section is where you write Python code for the <code>init</code> routine of your mutator.  The <a href="#forward">forward</a>
+section is where you write Python code for the <code>forward</code> routine of your mutator.  Finally, the <a href="#additional-code">additional
+code</a> section is where you write other Python code that your mutator will need, if
+any.</p>
+<h3 id="properties-of-a-mutator">Properties of a mutator</h3>
+<p>Mutators have several properties (attributes): name, default repeat count, input and output <a href="#ports">ports</a>,
+parameters, and Python package dependencies.  The default repeat count specifies the number of times this
+mutator will be repeated at execution time. The input ports are the input arguments to the mutator.  The
+output ports are the output arguments from the mutator.  Parameters are constants that can be defined
+differently for each use (instance) of the mutator, for example, <code>kernel_size</code>, <code>stride</code> or <code>dilation</code>.  You
+can also define "select" parameters (strings) that a user can choose from, e.g. "left", "right", "middle".</p>
+<h4 id="default-repeats">Default Repeats</h4>
+<p>Repeating a mutator means to take the outputs of the mutator and feed them back into the inputs of the
+mutator.  Not all mutators can be repeated: The mutator has to have the same number of inputs as outputs, and
+they have to be compatible.  The default repeat count specifies the number of times the mutator should be
+repeated, by default.  This default can be overridden when the mutator is used by changing the
+<a href="#instance-repeat">repeat</a> count property of the mutator instance.</p>
+<h4 id="ports">Ports</h4>
+<p>The input and output ports of a mutator are the connection between the data flow shown in the code-graph and
+the actual code. Every mutator needs at least one input port and at least one output port.  You can define more
+than one input or output port.  The ports are displayed as large dots on the mutator icon shown in the code
+graph. By default, the input port is named "input" and the output port is named "output", but these can be
+modified by clicking the "pencil" icon next to the port and entering a different name in the pop-up form.</p>
+<p>Additional input and output ports can be added by clicking the "plus" icon next to "Ports", which will display
+a pop-up form.  Enter the desired name for the new port, specify whether it is an input port or an output
+port, and click the "Add Port" button.</p>
+<p>Code within a mutator accesses input and output port values using <a href="#magic-variables">magic variables</a>.</p>
+<h4 id="parameters">Parameters</h4>
+<p>To make reuse of mutators easier, input parameters can be defined, which can be specified differently for each
+instance (use) of the mutator.  Code within a mutator accesses parameter values using <a href="#magic-variables">magic
+variables</a>.</p>
+<p>Parameters can be added by clicking the "plus" icon next to "Parameters", which will display a pop-up form.
+There are two kinds of parameters: input (ie. numeric), and select. Enter the desired name for the new
+parameter, which will help form the identifier used within the code to access the parameter value; the prompt
+is the string displayed in the properties of any instances of the mutator requesting a value for the
+parameter; and indicate whether the parameter is required or optional.</p>
+<p>Next, choose a "type" for the parameter.  If you choose "input" (a numeric type), then specify the default
+value as any valid Python constant expression.  If you choose type "select", then the pop-up display changes
+to allow you to specify the allowed string values for the select.  Click the "plus" icon next to "Allowed
+Values", and a text box will appear allowing you to enter the name of one of the select options,
+e.g. "left". Click the "plus" sign next to "Allowed Values" again, and enter another possible select option,
+e.g. "right".  Repeat this process until you have specified all of your desired values.  To remove a value,
+click the "minus" icon next to the value text box.</p>
+<p>Regardless of whether you choose a numeric or select parameter type, specify a default value for the
+parameter, if one. For select parameter types, the default value must be one of the specified select options.</p>
+<p>Click the "Add Parameter" button to create the parameter. Parameters can be edited by clicking the "pencil"
+icon next to the parameter, which will display a pop-up form allowing you to change its attributes.  Click
+"Update Parameter" to save the changes.  Parameters can be deleted by clicking the "trash can" icon next to
+the parameter name.</p>
+<h4 id="python-packages">Python packages</h4>
+<p>Here you can specify any Python packages (dependencies) required by the mutator.  PrototypeML will create
+installation scripts to install those packages on your development machine.</p>
+<p>Python package dependencies can be added by clicking the "plus" icon next to "Python Packages", which will
+display a pop-up form. Specify how the dependency should be installed, ie. via "pip", "conda", "conda-forge", or
+"other". If you choose one of the known package repositories, then you also need to enter the installation
+string.  If you choose "other", then you need to enter a download URL for the package.</p>
+<h3 id="imports">Imports</h3>
+<p>This section is where you write Python <code>import</code> statements for libraries and files (modules) needed by your
+mutator.  If you specify paths in any of the import statements, they should be relative to the project root
+directory, shown as <code>/</code> in the path shown near the top of the library bar.  Standard libraries like PyTorch or
+NumPy don't need paths, e.g.</p>
+<pre><code>import PyTorch
+import NumPy
+</code></pre>
+<p>But, for example, if you have a file <code>bluefin.py</code> located in the <code>/tuna</code> subdirectory of your project, and you
+want to import it, you would write:</p>
+<pre><code>import tuna/bluefin
+</code></pre>
+<h3 id="init">Init</h3>
+<p>This section is where you write the initialization code for your mutator.  </p>
+<p>To access the values of input and output ports, parameters, the repeat count for the mutator,
+and the repeat_index (which indicates which iteration of the repeat count you are currently executing), you use
+<a href="#magic-variables">magic variables</a>.</p>
+<p>Magic variables that access the values of parameters are NOT accessible within the <code>forward</code> routine of a
+mutator, so if you need access to these values within <code>forward</code>, the <code>init</code> routine will need to save them to
+class variables with instance-unique names.</p>
+<p><em>Important</em>: Instance-unique names&mdash;Since all of the <code>init</code> sections from all mutators in a block are
+concatenated into a single <code>__init__</code> routine in the class of the block containing the mutator, all
+definitions (and therefore, uses) of constants, variables, and functions within the <code>init</code> routine must be
+unique to each instance of the mutator.  If this is not done, and two mutators try to define the same class
+variable or function, the later definition will override the first.  To avoid this, use the <a href="#magic-variables">magic
+variable</a> <code>${instance}</code> in the name of the variable or function, e.g.</p>
+<pre><code>    self.mutvar_${instance} = 2000
+
+    # If this code is contained within a mutator whose *instance name*
+    # (not the name of the mutator itself) is instance_1,
+    # this will generate:
+    self.mutvar_instance_1 = 2000
+</code></pre>
+
+<p>The instance names of all components within a block must be unique.</p>
+<h4 id="magic-variables">Magic variables</h4>
+<p>Magic variables provide programmatic access to the inputs, outputs, and parameters of a mutator, and provide
+an instance-unique name to use to construct identifiers.  The actual values for these magic names are
+textually substituted during code-generation. Here are the available magic variables:</p>
+<ul>
+<li><code>${params}</code> - This is substituted with a comma-separated list of all parameters to a given mutator or block.<br>
+   Usage example:</li>
+</ul>
+<pre><code>    subcall(${params})
+
+    # If there are 3 parameters, `param1`, `param2`, and `param3`,
+    # this will generate:
+    subcall(param1, param2, param3)
+</code></pre>
+
+<ul>
+<li><code>${params.&lt;name&gt;}</code> - This has the value of parameter with name <code>name</code>.<br>
+   Usage example:</li>
+</ul>
+<pre><code>    if (${params.kernel_size} &gt; 1000):
+
+    # If kernel_size parameter is set to 2000, this will generate:
+    if (2000 &gt; 1000):
+</code></pre>
+
+<ul>
+<li><code>${ports.&lt;name&gt;}</code> - This has the value of the port with name <code>name</code>.<br>
+   Usage example:</li>
+</ul>
+<pre><code>    ${ports.output} = ${ports.input} * ${ports.weights}
+</code></pre>
+
+<ul>
+<li><code>${repeat}</code> - This has the value of the repeat count for the mutator or block.<br>
+   Usage example:</li>
+</ul>
+<pre><code>    if (${repeat} &gt; 20):
+
+    # If repeat count is set to 40, this will generate:
+    if (40 &gt; 20):
+</code></pre>
+
+<ul>
+<li><code>${repeat_index}</code> - This has the value of the repeat index for a repeated mutator or block.  The repeat
+   index varies from 0 to <code>repeat-1</code> inclusively.<br>
+   Usage example:</li>
+</ul>
+<pre><code>    if (${repeat_index} == ${repeat}-1):
+       (last loop iteration)
+</code></pre>
+
+<ul>
+<li><code>${instance}</code> - This is a unique string generated by PrototypeML for each instance of a mutator.
+  You can use it to construct unique variable names in the <code>init</code> and <code>forward</code> sections of a mutator.<br>
+   Usage example:</li>
+</ul>
+<pre><code>    self.dilation_${instance} = ${params.dilation}
+
+    # If the dilation parameter is set to 1 for a mutator instance
+    # named &quot;myconvolv1&quot;, this would generate:
+    self.dilation_myconvolv1 = 1
+</code></pre>
+
+<h3 id="forward">Forward</h3>
+<p>This section is where you write the code for the PyTorch <code>forward</code> routine for your mutator.</p>
+<p>To access the values of input and output ports, the repeat count for the mutator, and the repeat_index (which
+indicates which iteration of the repeat count you are currently executing), you use <a href="#magic-variables">magic
+variables</a>.</p>
+<p>Magic variables that access the values of parameters are NOT accessible within the <code>forward</code> routine of a
+mutator, so if you need access to these values within <code>forward</code>, the <code>init</code> routine will need to save them to
+class variables with instance-unique names.</p>
+<p><em>Important</em>: Instance-unique names&mdash;Since all of the <code>forward</code> sections from all mutators in a block
+are concatenated into a single <code>forward</code> routine in the class of the block containing the mutator, all
+definitions (and therefore, uses) of constants, variables, and functions within the <code>forward</code> routine must be
+unique to each instance of the mutator.  If this is not done, and two mutators try to define the same class
+variable or function, the later definition will override the first.  To avoid this, use the <a href="#magic-variables">magic
+variable</a> <code>${instance}</code> in the name of the variable or function, e.g.</p>
+<pre><code>    self.mutvar_${instance} = 2000
+
+    # If this code is contained within a mutator whose *instance name*
+    # (not the name of the mutator itself) is instance_1,
+    # this will generate:
+    self.mutvar_instance_1 = 2000
+</code></pre>
+
+<p>The instance names of all components within a block must be unique.</p>
+<h3 id="additional-code">Additional Code</h3>
+<p>This section holds any additional code that can be used in a Python <code>class</code>, for example, functions. The
+additional code section is inserted after the <code>__init__</code> and <code>forward</code> routines.</p>
+<p>The "Additional Code" section is inserted into the containing block's <code>class</code> only once, so use of the
+<code>${instance}</code> magic variable is not needed. The <code>${repeat}</code>, and <code>${repeat_index}</code> <a href="$magic-variables">magic
+variables</a> are accessible within the additional code section.</p>
+<h2 id="block-editor">Block editor</h2>
+<p>To edit a block, click on the block in the library bar.  The code-graph for the block  will appear in the
+<a href="#editor-window">editor window</a>, and its properties will appear in the <a href="#properties-bar">properties bar</a>.</p>
+<p>From here, you can drag in new components from the library bar and add arcs to connect them to existing
+components in the code-graph; edit any of the block properties in the properties bar, or by clicking on a
+component in the code-graph, you can change the properties of that instance of the component in the properties
+bar.  Clicking on an empty area of the code-graph will change the properties bar back to show the block
+properties instead of the component instance properties.</p>
+<h3 id="navigating-within-the-graph-minimap-zoom">Navigating within the graph (minimap, zoom)</h3>
+<p>Across the top of the editor window are icons that when clicked, let you zoom in or out of the graph; reset
+the graph view (useful if parts of the graph are out of the window); format the graph, which prettifies the
+components and arcs; switch to code view, to see the generated code for that block; and turn on or off the
+"minimap" displayed at the upper-right of the code-graph, which shows you which part of the code-graph is
+visible in the editor window.</p>
+<h3 id="adding-components-to-the-code-graph">Adding components to the code-graph</h3>
+<p>There are three steps to add a component to the code-graph:</p>
+<ol>
+<li>
+<p>Drag the component from the library bar onto the code-graph</p>
+</li>
+<li>
+<p>Drag arcs from the output(s) of other components to the input of the new component, and likewise, drag arcs
+   from the output(s) of the new component to the input(s) of other components.</p>
+</li>
+<li>
+<p>Set the properties of the new component, including how to combine two or more outputs connected to a single
+   input port, if any</p>
+</li>
+</ol>
+<h3 id="connecting-components-together-links-input-ports-and-output-ports">Connecting components together (links, input ports, and output ports)</h3>
+<p>Arcs in the code-graph show the data flow between components.  To draw an arc connecting a new component, click
+on the output port of an existing component and hold the mouse down, then drag it to the input port on the
+new component, and release the mouse.  Do the same from the output port of the new component to the input port
+of an existing component.</p>
+<p>You are allowed to draw two (or more) arcs to the same input port of some component.  In this case, you need
+to define how the two data streams should be combined.  If you click directly on the dot representing the
+input port, the properties tab of the editor will change to show the properties of that component instance.</p>
+<p>To delete an arc, select the arc by clicking on it, then either press the Delete key, or, in the properties
+bar, displayed when you select an arc, click the "Delete Link" button.</p>
+<h3 id="properties-of-a-block">Properties of a block</h3>
+<p>To set the properties of a block, click on the block in the library bar. The properties bar will display the
+block properties.</p>
+<h4 id="block-name">Block name</h4>
+<p>The name of this block.</p>
+<h4 id="default-repeat">Default repeat</h4>
+<p>Unless overriden in a block instance, this is the count of the number of times this block will be executed.
+Not all blocks can be repeated: They have to have the same number of inputs as outputs, and the
+corresponding inputs and outputs have to be compatible.</p>
+<h4 id="ports_1">Ports</h4>
+<p>This section displays the input and output ports for the block.  By default, every block has one input port
+named <code>input</code> and one output port named <code>output</code>.  You can add ports by clicking the "plus" icon, which will
+display a pop-up form requesting the name of the port, and whether it is an input or output port. Click "Add
+Port" to finish adding the port.  Ports can be renamed (including <code>input</code> and <code>output</code>), by clicking the
+"pencil" icon next to the port name, and editing the name and/or port type (input vs. output) in the pop-up
+window. Click "Update Port" to save the change.  Ports can also be deleted by clicking the "trash can" icon
+next to the port name.</p>
+<h4 id="parameters-and-variables">Parameters and variables</h4>
+<p>To make reuse of blocks easier, input parameters and variables can be defined, which can be specified
+differently for each instance (use) of the block.  Code within a block accesses parameter and variables values
+using <a href="#magic-variables">magic variables</a>.  Parameters and variables must have compile-time constant values.</p>
+<p>Parameters and variables are similar, except that parameter values can only contain constants or constant
+expressions, whereas variables can contain (constant) expressions that can include parameter values.</p>
+<p>Parameters can be added by clicking the "plus" icon next to "Parameters", which will display a pop-up form.
+There are two kinds of parameters: input (ie. numeric), and select. Enter the desired name for the new
+parameter, which will help form the identifier used within the code to access the parameter value; the prompt
+is the string displayed in the properties of any instances of the block requesting a value for the
+parameter; and indicate whether the parameter is required or optional.</p>
+<p>Next, choose a "type" for the parameter.  If you choose "input" (a numeric type), then specify the default
+value as any valid Python constant expression.  If you choose type "select", then the pop-up display changes
+to allow you to specify the allowed string values for the select.  Click the "plus" icon next to "Allowed
+Values", and a text box will appear allowing you to enter the name of one of the select options,
+e.g. "left". Click the "plus" sign next to "Allowed Values" again, and enter another possible select option,
+e.g. "right".  Repeat this process until you have specified all of your desired values.  To remove a value,
+click the "minus" icon next to the value text box.</p>
+<p>Regardless of whether you choose a numeric or select parameter type, specify a default value for the
+parameter, if one. For select parameter types, the default value must be one of the specified select options.</p>
+<p>Click the "Add Parameter" button to create the parameter. Parameters can be edited by clicking the "pencil"
+icon next to the parameter, which will display a pop-up form allowing you to change its attributes.  Click
+"Update Parameter" to save the changes.  Parameters can be deleted by clicking the "trash can" icon next to
+the parameter name.</p>
+<p>Variables are added, edited, and removed in exactly the same way as numeric parameters, except that the
+definition of a variable can include parameter values.  When you are adding a variable, and you click in the
+definition box, if there are any parameters defined, they will be displayed below the definition box. To
+insert a parameter value into the expression you are writing in the definition box, just click on the
+parameter name below the definition box.  The definition box accepts any valid Python constant expression.</p>
+<h3 id="setting-component-instance-properties">Setting component instance properties</h3>
+<p>Each component instance in the code-graph has a set of properties, some required, some optional. Component
+instance properties are different from the component properties; they refer to the particular instance of the
+component in the code-graph. To edit the properties of a block or mutator instance visible in the code-graph
+window, click on the component instance in the code-graph (not in the library bar), and the properties bar
+will display the component's properties for you to edit.</p>
+<h4 id="instance-name">Instance name</h4>
+<p>The instance name is the name of this particular instance of the block or mutator.  Instance names within a
+block must be unique across all components in the block, regardless of whether they are themselves blocks or
+mutators.  For example, if a block contains two copies of a block or mutator named "Conv", then by default,
+both instances in the graph will initially have instance name "Conv"; at least one of them should be renamed,
+e.g. "Conv1".</p>
+<h4 id="instance-repeats">Instance repeats</h4>
+<p>This is the count of the number of times this block or mutator will be executed.  Not all blocks and mutators
+can be repeated: They have to have the same number of inputs as outputs, and the corresponding inputs and
+outputs have to be compatible.  This instance repeat count overrides the default repeat count in the
+properties of the block or mutator definition.</p>
+<h4 id="instance-comment">Instance comment</h4>
+<p>This is a place to enter information about what this block or mutator does.</p>
+<h4 id="instance-activation">Instance activation</h4>
+<p>You can easily apply any commonly-used activation to the output of a block or mutator instance. Currently
+supported activations include: ReLU, Sigmoid, Tanh, Softmax, and Leaky_ReLU.</p>
+<h2 id="file-editor">File editor</h2>
+<p>The file editor is used to edit text files (ie. components that are not blocks or mutators), for example, the
+<a href="../projects/#the-readme-file">Readme file</a>.  It is a basic editor showing the lines in the file with line
+numbers.  Move your mouse within the file editor window and click to position the cursor, and use the standard
+delete and backspace keys for your operating system and device.  The properties bar displays the properties of
+a file, specifically the name and the file type, which can be one of (.py, .md, or .txt).  You can modify any
+of these properties from the properties bar.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../projects/" title="Project management" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Project management
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../codegen/" title="Code generation" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Code generation
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" /></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright 2020 Adventurize LLC.  All rights reserved.
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.36cbf620.min.js"></script>
+      <script src="../assets/javascripts/bundle.00c583dd.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.7f7c8775.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

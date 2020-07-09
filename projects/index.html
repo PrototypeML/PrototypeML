@@ -1,0 +1,648 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="PrototypeML is a neural-network integrated design and development environment available at www.PrototypeML.com">
+      
+      
+        <link rel="canonical" href="http://www.prototypeml.com/projects/">
+      
+      
+        <meta name="author" content="Daniel Harris">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.0">
+    
+    
+      
+        <title>Project management - PrototypeML</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.89dc9fe3.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#project-management" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="http://www.prototypeml.com" title="PrototypeML" class="md-header-nav__button md-logo" aria-label="PrototypeML">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,8A3,3 0 0,0 15,5A3,3 0 0,0 12,2A3,3 0 0,0 9,5A3,3 0 0,0 12,8M12,11.54C9.64,9.35 6.5,8 3,8V19C6.5,19 9.64,20.35 12,22.54C14.36,20.35 17.5,19 21,19V8C17.5,8 14.36,9.35 12,11.54Z" /></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            PrototypeML
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Project management
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="http://www.prototypeml.com" title="PrototypeML" class="md-nav__button md-logo" aria-label="PrototypeML">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,8A3,3 0 0,0 15,5A3,3 0 0,0 12,2A3,3 0 0,0 9,5A3,3 0 0,0 12,8M12,11.54C9.64,9.35 6.5,8 3,8V19C6.5,19 9.64,20.35 12,22.54C14.36,20.35 17.5,19 21,19V8C17.5,8 14.36,9.35 12,11.54Z" /></svg>
+
+    </a>
+    PrototypeML
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Welcome to PrototypeML" class="md-nav__link">
+      Welcome to PrototypeML
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../concepts/" title="Concepts" class="md-nav__link">
+      Concepts
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Project management
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Project management" class="md-nav__link md-nav__link--active">
+      Project management
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#projects-repository-page" class="md-nav__link">
+    Projects Repository Page
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-creation" class="md-nav__link">
+    Project creation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#editing-project-settings" class="md-nav__link">
+    Editing project settings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#forking-a-project" class="md-nav__link">
+    Forking a project
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#starring-a-project" class="md-nav__link">
+    Starring a project
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-readme-file" class="md-nav__link">
+    The Readme file
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-release" class="md-nav__link">
+    Creating a release
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deleting-a-project" class="md-nav__link">
+    Deleting a project
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prototypeml-accounts" class="md-nav__link">
+    PrototypeML Accounts
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../models/" title="Editing Models" class="md-nav__link">
+      Editing Models
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../codegen/" title="Code generation" class="md-nav__link">
+      Code generation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="#" title="_________" class="md-nav__link">
+      _________
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="http://www.prototypeml.com" title="PrototypeML Home" class="md-nav__link">
+      PrototypeML Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/PrototypeML/PrototypeML/issues" title="Issues" class="md-nav__link">
+      Issues
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="https://discord.gg/zq8uqSf" title="Community (Discord)" class="md-nav__link">
+      Community (Discord)
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#projects-repository-page" class="md-nav__link">
+    Projects Repository Page
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-creation" class="md-nav__link">
+    Project creation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#editing-project-settings" class="md-nav__link">
+    Editing project settings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#forking-a-project" class="md-nav__link">
+    Forking a project
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#starring-a-project" class="md-nav__link">
+    Starring a project
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-readme-file" class="md-nav__link">
+    The Readme file
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-release" class="md-nav__link">
+    Creating a release
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deleting-a-project" class="md-nav__link">
+    Deleting a project
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prototypeml-accounts" class="md-nav__link">
+    PrototypeML Accounts
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="project-management">Project management</h1>
+<p>Neural network models are organized into projects.  A project contains all of the components needed to build
+the neural network model, including any external libraries used, along with whatever training data, pre-trained
+weights, and documentation you provide.  From the <a href="#projects-repository-page">projects repository page</a>, you
+can search for projects that interest you, and examine the contents of the project.</p>
+<p>If you are logged in to your <a href="#prototypeml-accounts">PrototypeML account</a>, you can also <a href="#project-creation">create
+projects</a>, <a href="#editing-project-settings">edit project settings</a>, <a href="#forking-a-project">fork a
+project</a> (make a copy of a project that you can edit), <a href="#starring-a-project">star a
+project</a> (rate the project), build a project <a href="#the-readme-file">Readme file</a>, <a href="#editing-project-settings">tag the
+project</a> with appropriate categories to make it easier for others to find your work, and
+finally, you can <a href="#deleting-a-project">delete a project</a> you no longer want.</p>
+<h2 id="projects-repository-page">Projects Repository Page</h2>
+<p>To reach the projects repository page, click the Projects link from the main menu on the PrototypeML website.
+On the projects repository page is a sampling of some of the projects that have already been created by people
+in the PrototypeML community, sorted by popularity ("Greatest") by default.  You can also sort by "Latest" to
+see the newest projects, using the "Sort-By" drop-down menu.  If you're logged in to your PrototypeML account,
+you will also see a "Show" drop-down list, where you can select either "All Projects" (the default), which
+displays all projects contributed by the entire PrototypeML community); or "My Projects", which displays only
+your projects.</p>
+<p>Using the left sidebar on the page, you can search for projects that might interest you, using either free-text
+search, or by category (tag).  To search by free-text, just type the desired search string into the search
+box, and click the magnifying-glass icon (or hit &lt;Enter&gt;).  Free-text search looks for the search string
+in project names and project descriptions.  To search by tag, just click the desired tag.  You can specify
+<em>both</em> a tag and a free-text search string, in which case you will be shown projects that match both criteria,
+that is, they have been tagged using the specified tag, <em>and</em> they match the search string specified.  To
+clear a search, click on "All Tags" <em>and</em> delete the search string from the search box.  If you're viewing
+only your projects, these search tools are used to search only your projects.  To search through all projects,
+select "All Projects" from the "Show" menu.</p>
+<h2 id="project-creation">Project creation</h2>
+<p>To create a new project, click the "New Project" button on the <a href="#projects-repository-page">projects repository
+page</a>. You need to specify a name for the project, a description, and one or more tags
+(categories). These will help other people find your work. Click "Submit" to finish creating the project.</p>
+<p>After the project has been created, PrototypeML displays the project page for your new project.  Running
+across the top are the name of your project; the version number (set to "Dev" initially, but you can <a href="#creating-a-release">create a
+numbered version release</a> later; the number of <a href="#starring-a-project">stars</a> your project
+has been given by the PrototypeML community (yes, you can star your own project!); the number of times your
+project has been <a href="#forking-a-project">forked</a>, an "<a href="../models/#editing-models">Edit Model</a>" button, and
+drop-down menu of additional operations (marked with a "gear" icon) from where you can <a href="#creating-a-release">create a new
+release</a>, <a href="#editing-project-settings">edit your project settings</a>, or <a href="deleting-a-project">delete the
+project</a>.</p>
+<p>Below this top line are three or four tabs, one labeled "Model" (the default), one labeled "Releases", which
+won't appear until there are <a href="#creating-a-release] of the model, one labeled &quot;Issues&quot;, and
+one labeled &quot;Model Weights&quot;.  The &quot;Model&quot; tab shows the top-level components of the project, including any
+[mutators](concepts.md#mutators), [blocks](concepts.md#blocks), and [files](concepts.md#files). When you first
+create a project, only the [Readme file](#the-readme-file) is show">versioned releases</a>.</p>
+<p>The "Issues" tab (coming soon) is for users of your project to post problems or questions about your project,
+and your replies to their posts.</p>
+<p>The "Model Weights" tab (coming soon) is for you to post pre-trained weights, if appropriate, for your
+network, to allow people to use your project out-of-the box, without training, to apply to some machine learning
+application.</p>
+<h2 id="editing-project-settings">Editing project settings</h2>
+<p>To change the project name, the description, or the tags associated with your project, open the project page
+for your project, click the "gear" icon, and select "Edit Project Settings".  These are the same settings you
+had to provide when you first created the project.</p>
+<h2 id="forking-a-project">Forking a project</h2>
+<p>To make a copy of any project (including your own), click the "Fork" button on the page for that project.  You
+will be asked to specify a name for that copy (fork) of the project, and it will be added to your list of
+projects.  The forked version is a snapshot made at the time it was forked; this snapshot is <em>not</em> updated
+automatically when the original project is changed.  You can edit this copy of the project.</p>
+<h2 id="starring-a-project">Starring a project</h2>
+<p>You can also rate a project, by assigning it a <a href="./#starring-a-project">star</a>, giving recognition to
+the author.  Yes, you can "star" your own project!</p>
+<h2 id="the-readme-file">The Readme file</h2>
+<p>The Readme.md file is a <a href="https://daringfireball.net/projects/markdown/">Markdown</a> file in
+which you should put a description of your project, along with instructions on how to use it, and any other
+information a user of your project would find helpful, including links to relevant material.</p>
+<h2 id="creating-a-release">Creating a release</h2>
+<p>Be default when you create a project, the version number of your project is set to "Dev".  To allow other
+people to have a stable version of your project to use, with specific functionality you have defined, you can
+create a copy of the Dev branch of your project and assign it a version number using <a href="https://semver.org/spec/v2.0.0.html">semantic
+versioning</a> [coming soon].  People can then include that specific version
+of your project in their projects.  Creating a versioned copy of a project is called "creating a
+release".  The versioned copy <strong>cannot</strong> be changed.</p>
+<p>To create a release, find the drop-down menu of additional operations (marked with a "gear" icon) on the page
+for the project you want to release, and select "Create New Release".  The pop-up form requests a version
+number, which should conform to the <a href="https://semver.org/spec/v2.0.0.html">semantic versioning</a> specification.
+You also need to enter some release notes telling users what is new or changed in this release.  Once you
+create a release, a fourth tab ("Releases") will appear on the page for that project, listing all of the
+releases; clicking on a version number will display the notes for that release.</p>
+<h2 id="deleting-a-project">Deleting a project</h2>
+<p>If you want to delete a project you created, find the drop-down menu of additional operations (marked with a
+"gear" icon) on the page for the project you want to delete.  Select "Delete Project" from the menu. A
+confirmation box will appear requiring you to verify that you do indeed want to delete the project. Click "Ok"
+to delete the project.  Project deletion is irreversible, that is, projects cannot be "undeleted", so be sure
+you really want to delete the project first.  Note that deleting a project will <strong>not</strong> remove it from other
+projects that have already used it.</p>
+<h2 id="prototypeml-accounts">PrototypeML Accounts</h2>
+<p>You will need to be logged in to your own account on PrototypeML in order to create and manage projects.  It
+is free to create a PrototypeML account.  </p>
+<p>If you do not already have an account on PrototypeML, click on "Login/Register" in the main menu on any page,
+which will display a login form.  Click the "Create a new account" link below the login form. This will
+display a registration form, allowing you to register using either your Github login (if you have one), or by
+specifying new account credentials (username, login email address, and password) directly to PrototypeML. The
+username is the name that will appear publicly on all of your projects.</p>
+<p>If you register using Github, your PrototypeML username will be the same as your Github username, and you need
+to login to PrototypeML using your Github credentials every time you wish to log in.</p>
+<p>To login to an existing account, click on the "Login/Register" button in the main menu on any page, which will
+display a login form. You may log in using either your Github login (if you used it when you registered), or
+using your PrototypeML account login email address and password that you specified when you created your
+PrototypeML account.  Fill out the form and click the "Sign In" button.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../concepts/" title="Concepts" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Concepts
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../models/" title="Editing Models" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Editing Models
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" /></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright 2020 Adventurize LLC.  All rights reserved.
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.36cbf620.min.js"></script>
+      <script src="../assets/javascripts/bundle.00c583dd.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.7f7c8775.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
