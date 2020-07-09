@@ -61,8 +61,8 @@ Selecting block, mutator, folder, or file from the "Add" menu in the library bar
 the current directory of your project.  A pop-up window requests the name of your new component; enter the
 desired name, and click "Ok" to finish creating the new component.  Blocks, mutators, and files can then be
 edited by clicking on the component in the library bar, which displays the editor for that component.  By
-default, files are created as Python (.py) files. You can change the file type from the properties bar of the
-file editor.  ProtoypeML currently allows file types to be one of (.py, .txt, or .md).
+default, files are created as Python (.py) files. After creating a file, you can change the file type from the
+properties bar of the file editor.  ProtoypeML currently allows file types to be one of (.py, .txt, or .md).
 
 Folders can be renamed or removed, as desired, by clicking the 3-dot icon in the folder, which displays a
 pop-up menu of those choices.  Select rename or remove, as desired. Rename displays a pop-up window allowing
@@ -107,7 +107,7 @@ To edit a mutator, click on the mutator in the library bar.  The code for the mu
 The mutator editor window is divided into several sections.  The [imports](#imports) section is where you
 write Python import statements for libraries and files (modules) needed by your mutator.  The [init](#init)
 section is where you write Python code for the `init` routine of your mutator.  The [forward](#forward)
-section is whee you write Python code for the `forward` routine of your mutator.  Finally, the [additional
+section is where you write Python code for the `forward` routine of your mutator.  Finally, the [additional
 code](#additional-code) section is where you write other Python code that your mutator will need, if
 any.
 
@@ -131,7 +131,7 @@ repeated, by default.  This default can be overridden when the mutator is used b
 #### Ports
 
 The input and output ports of a mutator are the connection between the data flow shown in the code-graph and
-the actual code. Every mutator has at least one input port and at least one output port.  You can define more
+the actual code. Every mutator needs at least one input port and at least one output port.  You can define more
 than one input or output port.  The ports are displayed as large dots on the mutator icon shown in the code
 graph. By default, the input port is named "input" and the output port is named "output", but these can be
 modified by clicking the "pencil" icon next to the port and entering a different name in the pop-up form.
@@ -140,13 +140,13 @@ Additional input and output ports can be added by clicking the "plus" icon next 
 a pop-up form.  Enter the desired name for the new port, specify whether it is an input port or an output
 port, and click the "Add Port" button.
 
-Code within a mutator accesses input and output port values using [magic variables](#magic-variables].
+Code within a mutator accesses input and output port values using [magic variables](#magic-variables).
 
 #### Parameters
 
 To make reuse of mutators easier, input parameters can be defined, which can be specified differently for each
 instance (use) of the mutator.  Code within a mutator accesses parameter values using [magic
-variables](#magic-variables].
+variables](#magic-variables).
 
 Parameters can be added by clicking the "plus" icon next to "Parameters", which will display a pop-up form.
 There are two kinds of parameters: input (ie. numeric), and select. Enter the desired name for the new
@@ -197,32 +197,47 @@ want to import it, you would write:
 
 ### Init
 
-This section is where you write the initialization code for your mutator.  Since all of the `init` sections
-from all mutators in a block are concatenated into a single `__init__` routine in the class of the block
-containing the mutator, all definitions (and therefore, uses) of constants, variables, and functions within
-the `init` routine must be unique to each instance of the mutator.  This is accomplished by means of [magic
-variables](#magic-variables).
+This section is where you write the initialization code for your mutator.  
 
-In addition, you access the values of input and output ports, parameters, the repeat count for the mutator,
-and the repeat_index (which indicates which iteration of the repeat count you are currently executing) via
+To access the values of input and output ports, parameters, the repeat count for the mutator,
+and the repeat_index (which indicates which iteration of the repeat count you are currently executing), you use
 [magic variables](#magic-variables).
 
-Magic variables that access the values of input and output ports and parameters are NOT accessible
-within the `forward` routine of a mutator, so if you need access to these values within `forward`, the `init`
-routine will need to save them to class variables.
+Magic variables that access the values of parameters are NOT accessible within the `forward` routine of a
+mutator, so if you need access to these values within `forward`, the `init` routine will need to save them to
+class variables with instance-unique names.
+
+**Important**: Instance-unique names&mdash;Since all of the `init` sections from all mutators in a block are
+concatenated into a single `__init__` routine in the class of the block containing the mutator, all
+definitions (and therefore, uses) of constants, variables, and functions within the `init` routine must be
+unique to each instance of the mutator.  If this is not done, and two mutators try to define the same class
+variable or function, the later definition will override the first.  To avoid this, use the [magic
+variable](#magic-variables) `${instance}` in the name of the variable or function, e.g.
+
+~~~
+    self.mutvar_${instance} = 2000
+
+    # If this code is contained within a mutator whose *instance name*
+    # (not the name of the mutator itself) is instance_1,
+    # this will generate:
+    self.mutvar_instance_1 = 2000
+~~~
+
+The instance names of all components within a block must be unique.
 
 #### Magic variables
 
-Magic variables provide programmatic access to the inputs, outputs, and parameters of a mutator.  The actual
-values for these magic names are textually substituted during code-generation. Here are the available magic
-variables:
+Magic variables provide programmatic access to the inputs, outputs, and parameters of a mutator, and provide
+an instance-unique name to use to construct identifiers.  The actual values for these magic names are
+textually substituted during code-generation. Here are the available magic variables:
 
 * `${params}` - This is substituted with a comma-separated list of all parameters to a given mutator or block.<br>
    Usage example:
 ~~~
     subcall(${params})
 
-    # If there are 3 parameters, `param1`, `param2`, and `param3`, this will generate:
+    # If there are 3 parameters, `param1`, `param2`, and `param3`,
+    # this will generate:
     subcall(param1, param2, param3)
 ~~~
 
@@ -233,16 +248,6 @@ variables:
 
     # If kernel_size parameter is set to 2000, this will generate:
     if (2000 > 1000):
-~~~
-
-* `${instance}` - This is a unique string generated by PrototypeML for each instance of a mutator.
-  You can use it to construct unique variable names in the `init` and `forward` sections of a mutator.<br>
-   Usage example:
-~~~
-    dilation_${instance} = ${params.dilation}
-
-    # If the dilation parameter is set to 1, this might generate:
-    dilation_a2e43bcf = 1
 ~~~
 
 * `${ports.<name>}` - This has the value of the port with name `name`.<br>
@@ -268,18 +273,46 @@ variables:
        (last loop iteration)
 ~~~
 
+* `${instance}` - This is a unique string generated by PrototypeML for each instance of a mutator.
+  You can use it to construct unique variable names in the `init` and `forward` sections of a mutator.<br>
+   Usage example:
+~~~
+    self.dilation_${instance} = ${params.dilation}
+
+    # If the dilation parameter is set to 1 for a mutator instance
+    # named "myconvolv1", this would generate:
+    self.dilation_myconvolv1 = 1
+~~~
+
 ### Forward
 
-This section is where you write the code for the PyTorch `forward` routine for your mutator.  Since all of the
-`forward` sections from all mutators in a block are concatenated into a single `forward` routine in the class
-of the block containing the mutator, all definitions (and therefore, uses) of constants, variables, functions,
-etc. within the `forward` routine must be unique to each instance of the mutator. This is accomplished by
-means of the `${instance}` [magic variable](#magic-variables).
+This section is where you write the code for the PyTorch `forward` routine for your mutator.
 
-In the `forward` routine, only certain [magic variables](#magic-variables) are accessible, specifically
-`${instance}`, `${repeat}` (the repeat count for the mutator), and `${repeat_index}` (the loop index of the
-current iteration in a repeated mutator).  If the `forward` routine needs access to other magic variables, the
-`init` routine will need to save them to (unique, using `${instance}`) class variables.
+To access the values of input and output ports, the repeat count for the mutator, and the repeat_index (which
+indicates which iteration of the repeat count you are currently executing), you use [magic
+variables](#magic-variables).
+
+Magic variables that access the values of parameters are NOT accessible within the `forward` routine of a
+mutator, so if you need access to these values within `forward`, the `init` routine will need to save them to
+class variables with instance-unique names.
+
+**Important**: Instance-unique names&mdash;Since all of the `forward` sections from all mutators in a block
+are concatenated into a single `forward` routine in the class of the block containing the mutator, all
+definitions (and therefore, uses) of constants, variables, and functions within the `forward` routine must be
+unique to each instance of the mutator.  If this is not done, and two mutators try to define the same class
+variable or function, the later definition will override the first.  To avoid this, use the [magic
+variable](#magic-variables) `${instance}` in the name of the variable or function, e.g.
+
+~~~
+    self.mutvar_${instance} = 2000
+
+    # If this code is contained within a mutator whose *instance name*
+    # (not the name of the mutator itself) is instance_1,
+    # this will generate:
+    self.mutvar_instance_1 = 2000
+~~~
+
+The instance names of all components within a block must be unique.
 
 ### Additional Code
 
@@ -408,9 +441,10 @@ will display the component's properties for you to edit.
 #### Instance name
 
 The instance name is the name of this particular instance of the block or mutator.  Instance names within a
-block must be unique for that type of block or mutator.  For example, if a block contains two copies of a
-block or mutator named "Conv", then by default, both instances in the graph will have the name "Conv"; at
-least one of them should be renamed, e.g. "Conv1".
+block must be unique across all components in the block, regardless of whether they are themselves blocks or
+mutators.  For example, if a block contains two copies of a block or mutator named "Conv", then by default,
+both instances in the graph will initially have instance name "Conv"; at least one of them should be renamed,
+e.g. "Conv1".
 
 #### Instance repeats
 
