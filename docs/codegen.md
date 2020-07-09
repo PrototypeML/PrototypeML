@@ -20,5 +20,5 @@ Code generation proceeds as follows:
   repeat counts, repeat indices, etc. and all references to input and output port values within each block are
   resolved.
 
-This process is analagous to a linker concatenating different modules into program sections and resolving
+This process is analagous to a linker concatenating the program sections from different objects and resolving
 references.

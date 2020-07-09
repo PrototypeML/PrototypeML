@@ -167,5 +167,5 @@ Code generation proceeds as follows:
 * All of the references within the code to properties like parameters, variables, repeat counts, and input
   &amp; output ports are resolved.
 
-This process is analagous to a linker concatenating different modules into program sections and resolving
+This process is analagous to a linker concatenating the program sections from different objects and resolving
 references.

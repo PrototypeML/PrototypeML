@@ -207,7 +207,7 @@ Magic variables that access the values of parameters are NOT accessible within t
 mutator, so if you need access to these values within `forward`, the `init` routine will need to save them to
 class variables with instance-unique names.
 
-**Important**: Instance-unique names&mdash;Since all of the `init` sections from all mutators in a block are
+*Important*: Instance-unique names&mdash;Since all of the `init` sections from all mutators in a block are
 concatenated into a single `__init__` routine in the class of the block containing the mutator, all
 definitions (and therefore, uses) of constants, variables, and functions within the `init` routine must be
 unique to each instance of the mutator.  If this is not done, and two mutators try to define the same class
@@ -296,7 +296,7 @@ Magic variables that access the values of parameters are NOT accessible within t
 mutator, so if you need access to these values within `forward`, the `init` routine will need to save them to
 class variables with instance-unique names.
 
-**Important**: Instance-unique names&mdash;Since all of the `forward` sections from all mutators in a block
+*Important*: Instance-unique names&mdash;Since all of the `forward` sections from all mutators in a block
 are concatenated into a single `forward` routine in the class of the block containing the mutator, all
 definitions (and therefore, uses) of constants, variables, and functions within the `forward` routine must be
 unique to each instance of the mutator.  If this is not done, and two mutators try to define the same class
