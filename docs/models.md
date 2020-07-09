@@ -397,7 +397,7 @@ next to the port name.
 
 To make reuse of blocks easier, input parameters and variables can be defined, which can be specified
 differently for each instance (use) of the block.  Code within a block accesses parameter and variables values
-using [magic variables](#magic-variables].  Parameters and variables must have compile-time constant values.
+using [magic variables](#magic-variables).  Parameters and variables must have compile-time constant values.
 
 Parameters and variables are similar, except that parameter values can only contain constants or constant
 expressions, whereas variables can contain (constant) expressions that can include parameter values.
