@@ -10,7 +10,7 @@ Code generation proceeds as follows:
 
 * PrototypeML concatenates all of the mutator sections (import, init, forward, additional code) from each
   mutator in each block into a single set of `import` statements in the class, a single `__init__` routine,
-  and a single `forward` routine. The additional code section is added to the class after the `__init__` and
+  and a single `forward` routine. The additional code sections are added to the class after the `__init__` and
   `forward` routines.
 
 * Code is generated to implement repeat counts and activations
